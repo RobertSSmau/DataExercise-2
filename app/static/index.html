@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settore Pesca Italia</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Settore Pesca Italia</h1>
+<p>Visualizzazione delle serie statistiche calcolate. Seleziona una serie e un intervallo di anni.</p>
+
+<div class="controls">
+    <div>
+        <label>Serie</label>
+        <select id="serie">
+            <option value="/api/serie/produttivita/nazionale">Produttività nazionale (somma)</option>
+            <option value="/api/serie/produttivita/aree">Produttività per area (somma)</option>
+            <option value="/api/serie/occupazione/nazionale">Occupazione nazionale (media)</option>
+            <option value="/api/serie/occupazione/aree">Occupazione per area (media)</option>
+            <option value="/api/serie/importanza/aree">Importanza economica per area (media)</option>
+        </select>
+    </div>
+    <div>
+        <label>Da anno</label>
+        <input type="number" id="da_anno" value="2000" min="1900" max="2100" style="width:90px">
+    </div>
+    <div>
+        <label>A anno</label>
+        <input type="number" id="a_anno" value="2020" min="1900" max="2100" style="width:90px">
+    </div>
+    <button onclick="carica()">Mostra</button>
+</div>
+
+<div id="errore"></div>
+<canvas id="grafico"></canvas>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
